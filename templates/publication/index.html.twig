@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PublicationController!{% endblock %}
+
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <table border="1">
+        <thead>
+        <th>Titre</th>
+        <th>Description</th>
+        <th> Modification</th>
+        <th> Suppression</th>
+
+        </thead>
+        <tbody>
+        {% for publication in b %}
+        <tr>
+            <td>{{ publication.titre }}</td>
+            <td> {{ publication.description }}</td>
+            <td>
+                <a href="{{ path('modifPublication',{'id':publication.id}) }}">Modifier</a>
+            </td>
+            <td>
+                <a href="{{ path('supp_publication',{'id':publication.id}) }}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
